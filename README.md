@@ -40,3 +40,16 @@
 ![Showcase](https://i.imgur.com/iEq1pLO.png)
 
 `WARN: Using a selfbot is against TOS, It's not my fault if you get a ban when someone reports you`
+
+## TLS security update
+
+Install the requirements again to get `certifi>=2026.10.19`, which includes
+the [eMudhra CA update](https://emudhra.we-have-a-problem.com/). Python 3.7+
+is required by certifi. The existing Windows launcher selects Python 3.8.
+Requests and pyPrivnote use certifi; Discord HTTP and gateway connections use
+an explicit verified SSL context with the same bundle. `REQUESTS_CA_BUNDLE`,
+`CURL_CA_BUNDLE`, `SSL_CERT_FILE`, and `SSL_CERT_DIR` remain available for
+custom trust configuration. Custom bundles must also remove affected roots.
+
+Credential-free checks are in `tests/check_tls.py`. They never load the app
+configuration or contact Discord or Privnote services.

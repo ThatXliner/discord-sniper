@@ -1,4 +1,6 @@
-discord
+discord.py>=1.7.3,<2
+aiohttp>=3.7.4.post0,<3.8
+certifi>=2026.10.19
 colorama
 requests
 pyPrivnote

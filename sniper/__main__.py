@@ -6,6 +6,7 @@ import colorama
 import ctypes
 import datetime
 import discord
+from .tls import create_connector
 import os
 import pyPrivnote as pn
 from colorama import Fore
@@ -98,6 +99,7 @@ def codestart():
     ''' + Fore.RESET)
 colorama.init()
 Sniper = commands.Bot(
+    connector=create_connector(),
     description='Discord Sniper',
     command_prefix="",
     self_bot=True
